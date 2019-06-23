@@ -1,4 +1,4 @@
-package junit;
+package exercises;
 
 import com.gargoylesoftware.htmlunit.html.HtmlListing;
 import org.assertj.core.internal.Arrays;
@@ -12,7 +12,7 @@ import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.concurrent.ForkJoinPool;
 
-public class JUnitTest {
+public class ExercisesTest {
 
     @Test
     public void codeChallenges() {
