@@ -51,22 +51,11 @@ public class JUnitTest {
 //          calculateBMI(88.6, 164.2);
 //        int[] myArray = {2, 1, 2, 3, 4};
 //        countsEven(myArray);
-        System.out.println(nearTen(12));
+        //System.out.println(nearTen(12));
     }
 
 
-    public boolean nearTen(int num) {
-        if(num<0){
-            return false;
-        }
-        if (num%5>2){
-            return fa
-        }
 
-
-        return true;
-
-    }
 
 
     private void countsEven(int[] numbers) {
