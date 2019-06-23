@@ -1,0 +1,33 @@
+amount: "3000"
+value: "19"
+
+
+date: "05/12/1985"
+zip: "94022"
+address: 4970 El Camino Real
+city: Los Altos
+state: CA
+payment: "2300"
+empStatus: "7"
+income: "75000"
+addincome: "10000"
+phone: "650-215-0000"
+email: test.tester@abc123.com
+password: Passw@rd123
+contactPersonName: Jennifer
+contactPersonPhone: "1234567890"
+username: gplagun
+
+
+confirmPassword: Passw@rd123
+fName: Galina
+lName: Lagunova
+phoneNum: 650-215-8701
+countryOfOrigin: Japan
+gender: female
+dateOfBirth: 06/10/1954
+fullAddress: 465 Wilson Ave Sunnyvale CA 94086
+
+savedPassword: [entered]
+
+name: John Smith

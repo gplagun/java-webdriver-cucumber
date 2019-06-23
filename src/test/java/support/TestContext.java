@@ -1,6 +1,7 @@
 // Created by Viacheslav (Slava) Skryabin 04/01/2018
 package support;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,15 +11,34 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.yaml.snakeyaml.Yaml;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.lang.Exception;
 
 public class TestContext {
 
     private static WebDriver driver;
+    private static HashMap<String, String> data;
 
-    public static void initialize() {
+    public static void addData(String key, String value){
+        data.put(key,value);
+    }
+    public static String getData(String key){
+        return data.get(key);
+    }
+
+    public static HashMap<String, String> loadFromFile() throws Exception {
+        File file = new File(System.getProperty("user.dir") + "/src/test/resources/downloads/data.yaml");
+        FileInputStream stream = new FileInputStream(file);
+        return new Yaml().load(stream);
+    }
+
+    public static void initialize() throws Exception{
+        data = loadFromFile();
         setDriver("chrome");
     }
 
@@ -28,6 +48,11 @@ public class TestContext {
 
     public static WebDriver getDriver() {
         return driver;
+    }
+
+    public static JavascriptExecutor getExecutor(){
+
+        return (JavascriptExecutor)driver;
     }
 
     public static void setDriver(String browser) {
@@ -57,6 +82,7 @@ public class TestContext {
                     ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.setExperimentalOption("prefs", chromePreferences);
+                   // chromeOptions.addExtensions(new File(System.getProperty(("user.dir")+"src/test/resources/downloads/ChroPath_v0.3.2.crx")));
                     if (headless) {
                         chromeOptions.setHeadless(true);
                         chromeOptions.addArguments("--window-size=1920,1080");
